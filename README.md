@@ -8,22 +8,22 @@ This contains codes for inference using trained DeepPET-OPSCC Models. Only need 
 </p>
 
 
-### Set up steps
+### Installation
+
+This inference code is based on Pytorch and has been tested with the latest version (1.8.0)
 
 - Ananoconda environment installation and activation
-
-
 ```
 conda create -n deeppet-py3 pip python=3.6
 conda activate deeppet-py3
-
+```
+- Install Pytorch and required packages
+```
 conda install pytorch torchvision torchaudio cudatoolkit=11.0 -c pytorch -c conda-forge
 pip install SimpleITK
+pip install tqdm
 ```
-
-
-
-
+- Run the code, we put one patient example in sample_data folder.
 ```
 python inference_DeepPETOPSCC.py
 ```
