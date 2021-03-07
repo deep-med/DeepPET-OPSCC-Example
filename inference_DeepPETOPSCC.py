@@ -13,7 +13,7 @@ from models.networks import DeepConvSurv_Cox_Origin
 from dataloaders.Oral_oncology_offline import Oral_dataloader_offline
 from utils.evaluation import evaluation
 
-os.environ["CUDA_VISIBLE_DEVICES"] = "3"
+os.environ["CUDA_VISIBLE_DEVICES"] = "0"
 
 
 def evaluate_test_data(root_dir, test_id, model_test, test_mode='T'):
