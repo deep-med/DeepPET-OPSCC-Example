@@ -23,6 +23,7 @@ conda install pytorch torchvision torchaudio cudatoolkit=11.0 -c pytorch -c cond
 pip install SimpleITK
 pip install tqdm
 pip install vtk
+pip install scikit-image
 ```
 - Compile [NVIDIA-Kaolin](https://github.com/NVIDIAGameWorks/kaolin) for generating dist map, first download all files and then compile it with the following Command
 
