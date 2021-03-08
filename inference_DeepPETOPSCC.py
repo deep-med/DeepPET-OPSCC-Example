@@ -106,9 +106,11 @@ if __name__ == '__main__':
     # The third step is to generate dist map from lymph Nodes to Tumor
     ###################################################################################
 
-    ##########################################################
-    # Final step to inference, put one as example
-    ##########################################################
+    ##############################################################################
+    # Final step to inference, put one as example, if you need try your own data,
+    # you need crop ROI and calculate dist map, codes will be available later
+    ##############################################################################
 
     inference_with_trained_DeepPET_OPSCC(test_mode='T')
+   # Need dist map to run TN model, the dist map generation code will be available later
     inference_with_trained_DeepPET_OPSCC(test_mode='T_N')
