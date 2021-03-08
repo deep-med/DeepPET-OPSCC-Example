@@ -1,5 +1,5 @@
 # DeepPET-OPSCC-Example
-This is an example of running inference with trained DeepPET-OPSCC models. For the DeepPET-OPSCC-T model, the inputs are the original PET (SUV) image and tumor mask; for the DeepPET-OPSCC-TN model, an additional distance map is needed. An illustrative example of the input data is provided in the sample_data folder. The default data format is Nifty (.nii.gz).
+This is an example of running inference with trained DeepPET-OPSCC prognosis models. For the DeepPET-OPSCC-T model, the inputs are the PET (SUV) ROI image and corresponding tumor mask; for the DeepPET-OPSCC-TN model, an additional distance map is needed. An illustrative example of the input data is provided in the sample_data folder. The default data format is Nifty (.nii.gz).
 
 ### Overview
 
