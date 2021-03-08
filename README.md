@@ -28,7 +28,7 @@ pip install tqdm
 python inference_DeepPETOPSCC.py
 ```
 ### Usage
-DeepPET-OPSCC (trained models) is available for research-use upon request (email xxx). This tool is provided for research purposes only and no responsibility is accepted for clinical decisions arising from its use. Commercial use requires a license (contact xxx), for further information please email xxx.
+DeepPET-OPSCC (trained models) is available for research-use upon request (email xxx). This tool is provided for research purposes only and no responsibility is accepted for clinical decisions arising from its use. Commercial use is prohibited, for further information please email xxx.
 
 
 ### Citation
