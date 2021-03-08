@@ -3,7 +3,7 @@ from utils.Mash2Mesh import Mask2Mesh
 import numpy as np
 import SimpleITK as sitk
 import torch
-from kaolin.metrics.point import directed_distance
+from kaolin.metrics.pointcloud import sided_distance
 from skimage import measure
 from skimage import morphology
 import SimpleITK
@@ -93,10 +93,10 @@ def generate_distmap(mask_dir, save_dir):
         points = np.concatenate(points, axis=1)
         points = np.asarray(points, dtype=np.float32)
 
-        xyz1 = torch.from_numpy(tumor_pts).cuda()
-        target_xyz = torch.from_numpy(points * 2.0).cuda()
+        xyz1 = torch.from_numpy(np.expand_dims(tumor_pts, axis=0)).cuda()
+        target_xyz = torch.from_numpy(np.expand_dims(points*2.0, axis=0)).cuda()
 
-        dist2 = directed_distance(target_xyz, xyz1, mean=False)
+        dist2, idx = sided_distance(target_xyz, xyz1)
 
         np_dist = dist2.data.cpu().numpy()
         np_dist = np.squeeze(np_dist)
