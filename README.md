@@ -22,7 +22,14 @@ conda activate deeppet-py3
 conda install pytorch torchvision torchaudio cudatoolkit=11.0 -c pytorch -c conda-forge
 pip install SimpleITK
 pip install tqdm
+pip install vtk
 ```
+- Compile [NVIDIA-Kaolin](https://github.com/NVIDIAGameWorks/kaolin) for generating dist map, first download all files and then compile it with the following Command
+
+```
+ python setup.py develop
+```
+
 - Run the inference code (trained models needed, availabe upon request)
 ```
 python inference_DeepPETOPSCC.py
