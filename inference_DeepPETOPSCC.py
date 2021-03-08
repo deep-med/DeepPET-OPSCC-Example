@@ -12,8 +12,8 @@ import torch
 from models.networks import DeepConvSurv_Cox_Origin
 from dataloaders.Oral_oncology_offline import Oral_dataloader_offline
 from utils.evaluation import evaluation
-
-os.environ["CUDA_VISIBLE_DEVICES"] = "0"
+import glob
+from preprocess_Crop import crop_tumor_lym_each_patient
 
 
 def evaluate_test_data(root_dir, test_id, model_test, test_mode='T'):
@@ -31,7 +31,7 @@ def evaluate_test_data(root_dir, test_id, model_test, test_mode='T'):
 
     return test_val_risks
 
-def inference_with_trained_DeepPET_OPSCC(test_mode='T'):
+def inference_with_trained_DeepPET_OPSCC(PID_cli, test_mode='T'):
 
     """
     load parser parameters
@@ -49,13 +49,11 @@ def inference_with_trained_DeepPET_OPSCC(test_mode='T'):
     load original survival label
     """
 
-    patch_path = './sample_data/'
+    patch_path = './sample_data/img/'
 
     """
     load original survival label
     """
-
-    PID_cli = ['example']
 
     if test_mode == 'T':
 
@@ -92,25 +90,45 @@ def inference_with_trained_DeepPET_OPSCC(test_mode='T'):
 
 if __name__ == '__main__':
 
+    src_folder = './ori_data/'
+    src_img_path = 'seg_img'
+    src_seg_path = 'seg_mask'
+
+
     ##########################################################################################
     # The first step is to apply proposed segmentation models for Tumor and Lymph Nodes segmentation
     #############################################################################################
 
-    # Codes will be available after the acceptance of the work
+    # You could use your own segmentation model
 
     ##########################################################################################
     # The second step is to crop VOI and save in data_saved based on Segmentation results
     #############################################################################################
 
+    list_path = os.path.join(src_folder, src_img_path + '/*.nii.gz')
+
+    all_path = glob.glob(list_path)
+    print('There {} images'.format(len(all_path)))
+    #
+    crop_tumor_lym_each_patient(all_path, img_src_path=src_img_path, seg_src_path=src_seg_path)
+    #
+    nifit_name = [each_path.split('/')[-1].split('.nii.gz')[0] for each_path in all_path]
+    #
+    print('Crop finished and saving results in sample_data/img, /mask')
+
     ##################################################################################
     # The third step is to generate dist map from lymph Nodes to Tumor
     ###################################################################################
+    from generate_dist_map import generate_distmap
 
-    ##############################################################################
-    # Final step to inference, put one as example, if you need try your own data,
-    # you need crop ROI and calculate dist map, codes will be available later
-    ##############################################################################
+    generate_distmap('./sample_data/mask/', save_dir='./sample_data/dist_map/')
 
-    inference_with_trained_DeepPET_OPSCC(test_mode='T')
-   # Need dist map to run TN model, the dist map generation code will be available later
-    inference_with_trained_DeepPET_OPSCC(test_mode='T_N')
+    print('finished generate distmap')
+
+
+    ##########################################################
+    # Final step to inference, put one as example
+    ##########################################################
+
+    inference_with_trained_DeepPET_OPSCC(nifit_name, test_mode='T')
+    inference_with_trained_DeepPET_OPSCC(nifit_name, test_mode='T_N')

@@ -8,30 +8,11 @@ import os
 import torch
 import numpy as np
 from torch.utils.data import Dataset, DataLoader
-import SimpleITK as sitk
 from torchvision import transforms, utils
-import SimpleITK
+from utils.evaluation import load_nifti_itk
+
 def worker_init_fn(worker_id):
     np.random.seed(np.random.get_state()[1][0] + worker_id)
-
-
-def load_nifti_itk(file_name):
-
-
-    reader = SimpleITK.ImageFileReader()
-    reader.SetFileName(file_name)
-    image = reader.Execute()
-
-    spacing = np.array(list(image.GetSpacing()))
-
-    origin = image.GetOrigin()
-    direction = image.GetDirection()
-
-    nda = SimpleITK.GetArrayFromImage(image)
-    img_array = nda.transpose((2, 1, 0))[::-1, ::-1, :]
-
-    return img_array, [spacing, origin, direction]
-
 
 class Oral_dataset_offline(Dataset):
     def __init__(self, root_dir, list_path, offline=False, transform=None, train=True):
@@ -59,15 +40,20 @@ class Oral_dataset_offline(Dataset):
 
         # print(pid_name)
 
-        full_path = str(os.path.join(self.root_dir, pid_name+'_img.nii.gz'))
-        full_mask_path = full_path.replace('img', 'tr_mask')
-        full_dist_path = full_path.replace('img', 'lym_dist')
+        full_path = str(os.path.join(self.root_dir, pid_name+'.nii.gz'))
+        full_mask_path = full_path.replace('img', 'mask')
+        full_dist_path = full_path.replace('img', 'dist_map')
 
 
         # Must make sure the load_nifit_itk is the same before
         img_data, spacing = load_nifti_itk(full_path)
         mask_data, spacing = load_nifti_itk(full_mask_path)
         dist_data, spacing = load_nifti_itk(full_dist_path)
+
+        img_data[img_data > 30.0] = 30.0
+        mask_data[img_data < 2.5] = 0.0
+        dist_data /= 121.0
+        img_data = img_data / 30.0
 
 
         img_data = np.asarray(img_data, dtype=np.float32)
