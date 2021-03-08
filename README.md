@@ -1,5 +1,5 @@
 # DeepPET-OPSCC-Example
-This is an example of running inference with trained DeepPET-OPSCC prognostic models. For the DeepPET-OPSCC-T model, the inputs are the PET (SUV) ROI image and corresponding tumor mask; for the DeepPET-OPSCC-TN model, an additional distance map is needed. An illustrative example of the input data is provided in the sample_data folder. The default data format is NIfTI (.nii.gz).
+This is an example of running inference with trained DeepPET-OPSCC prognostic models. For the DeepPET-OPSCC-T model, the inputs are the PET (SUV) ROI image and corresponding tumor mask; for the DeepPET-OPSCC-TN model, an additional distance map is needed. An illustrative example of the input data is provided in the sample_data folder. The default data format is NIfTI (.nii.gz). Should put in the 'ori_data' folder, the ROI/mask/dist map will automatically be saved in the folder 'sample_data'
 
 ### Overview
 
@@ -35,7 +35,7 @@ pip install vtk
 python inference_DeepPETOPSCC.py
 ```
 ### Usage
-DeepPET-OPSCC trained prognostic models are available for research-use upon request (email yaojiawen076@paii-labs.com). This tool is provided for research purposes only and no responsibility is accepted for clinical decisions arising from its use. COMMERCIAL USE IS PROHIBITED for the time being. For further information please email yaojiawen076@paii-labs.com.
+DeepPET-OPSCC trained prognostic models are available for research-use only. This tool is provided for research purposes only and no responsibility is accepted for clinical decisions arising from its use. COMMERCIAL USE IS PROHIBITED for the time being. For further information please email yaojiawen076@paii-labs.com.
 
 
 ### Citation
