@@ -23,7 +23,7 @@ conda install pytorch torchvision torchaudio cudatoolkit=11.0 -c pytorch -c cond
 pip install SimpleITK
 pip install tqdm
 ```
-- Run the inference code
+- Run the inference code (trained models needed, availabe upon request)
 ```
 python inference_DeepPETOPSCC.py
 ```
