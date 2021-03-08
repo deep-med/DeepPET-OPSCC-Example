@@ -1,5 +1,5 @@
 # DeepPET-OPSCC-Example
-This contains codes for inference using trained DeepPET-OPSCC Models. Only need Segmentation mask and Original PET data as inputs for T model, require additional dist map for TN model. Default is Nifty data format (.nii.gz).
+This is an example of running inference with trained DeepPET-OPSCC models. For the DeepPET-OPSCC-T model, only the original PET (SUV) image and tumor mask are needed as inputs; for the DeepPET-OPSCC-TN model, an additional dist map is needed. The default image format is Nifty (.nii.gz).
 
 ### Overview
 
