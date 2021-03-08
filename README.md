@@ -28,7 +28,7 @@ pip install tqdm
 python inference_DeepPETOPSCC.py
 ```
 ### Usage
-DeepPET-OPSCC trained prognostic models are available for research-use upon request (email yjiaweneecs@gmail.com). This tool is provided for research purposes only and no responsibility is accepted for clinical decisions arising from its use. COMMERCIAL USE IS PROHIBITED for the time being. For further information please email yjiaweneecs@gmail.com.
+DeepPET-OPSCC trained prognostic models are available for research-use upon request (email yaojiawen076@paii-labs.com). This tool is provided for research purposes only and no responsibility is accepted for clinical decisions arising from its use. COMMERCIAL USE IS PROHIBITED for the time being. For further information please email yaojiawen076@paii-labs.com.
 
 
 ### Citation
