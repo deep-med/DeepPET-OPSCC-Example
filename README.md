@@ -23,7 +23,7 @@ conda install pytorch torchvision torchaudio cudatoolkit=11.0 -c pytorch -c cond
 pip install SimpleITK
 pip install tqdm
 ```
-- Run the code, we put one patient example in sample_data folder.
+- Run the inference code
 ```
 python inference_DeepPETOPSCC.py
 ```
