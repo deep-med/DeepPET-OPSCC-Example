@@ -43,9 +43,9 @@ DeepPET-OPSCC trained prognostic models are available for research-use only. Thi
 If you find this repository useful in your research, please cite:
 ```
 @article{Cheng2021,
-  title={Deep learning-based fully-automated prediction of overall survival in patients with oropharyngeal cancer using FDG PET imaging: an international retrospective study.},
+  title={Deep learning-based fully-automated prediction of overall survival in patients with oropharyngeal cancer using FDG PET imaging},
   author={Nai-Ming Cheng, Jiawen Yao, Jinzheng Cai, Xianghua Ye, Shilin Zhao, Kui Zhao, Wenlan Zhou, Isabella Nogues, Yuankai Huo, Chun-Ta Liao, Hung-Ming Wang, Chien-Yu Lin, Li-Yu Lee, Jing Xiao, Le Lu, Ling Zhang, and Tzu-Chen Yen},
-  journal={Under Review}
+  journal={Clinical Cancer Research}
 }
 
 ```
