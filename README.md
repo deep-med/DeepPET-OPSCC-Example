@@ -1,5 +1,12 @@
+
 # DeepPET-OPSCC-Example
+Deep learning for fully-automated prediction of overall survival in patients with oropharyngeal cancer using FDG PET imaging: an international retrospective study.
+*Clinical Cancer Research*, OnlineFirst version was published on May 4, 2021
+
+[Journal Link](https://clincancerres.aacrjournals.org/content/early/2021/05/03/1078-0432.CCR-20-4935) | [Cite](#Citation) 
+
 This is an example of running inference with trained DeepPET-OPSCC prognostic models. For the DeepPET-OPSCC-T model, the inputs are the PET (SUV) ROI image and corresponding tumor mask; for the DeepPET-OPSCC-TN model, an additional distance map is needed. An illustrative example of the input data is provided in the sample_data folder. The default data format is NIfTI (.nii.gz). If you want to try your own data, please first convert PET to image with SUV values and put in the 'ori_data' folder, the ROI/mask/dist map will automatically be saved in the folder 'sample_data'.
+
 
 ### Overview
 
@@ -39,7 +46,7 @@ python inference_DeepPETOPSCC.py
 DeepPET-OPSCC trained prognostic models are available for research-use only. This tool is provided for research purposes only and no responsibility is accepted for clinical decisions arising from its use. COMMERCIAL USE IS PROHIBITED for the time being. For further information please email yaojiawen076@paii-labs.com.
 
 
-### Citation
+## Citation
 If you find this repository useful in your research, please cite:
 ```
 @article{Cheng2021,
